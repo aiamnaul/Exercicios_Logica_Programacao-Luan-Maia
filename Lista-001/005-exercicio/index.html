@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Verificar(){
+      let number
+      number = Number (document.getElementById("idNumber").value)
+
+      let somaAnte
+      somaAnte = Number (number - 1)
+      document.getElementById("outAntecessor").value= " O antecessor de " + number + " é " + somaAnte
+      let somaSuce
+      somaSuce = Number (number + 1)
+      document.getElementById("outSucessor").value= " O sucessor de " + number + " é " + somaSuce
+    }
+  </script>
+  
+
+  <main>
+    <div>
+      <input type="number" id="idNumber" placeholder="Digite o numero:">
+    </div>
+    <div>
+      <input type="button" id="idVerificar" value="verificar" onclick="Verificar()">
+    </div>
+    <div>
+      <output id="outAntecessor"></output>
+    </div>
+    <div>
+      <output id="outSucessor"></output>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Calcular(){
+      let preco
+      preco = parseFloat(document.getElementById("idPreco").value)
+      console.log(preco)
+      let desconto
+      desconto  = parseFloat(preco * 0.05) 
+      console.log(desconto)
+      let precoPromocional
+      precoPromocional = parseFloat(preco - desconto)
+      console.log(precoPromocional)
+
+      document.getElementById("idSaida").value = " Você recebera: " + desconto + "R$ de desconto;" + " Então você pagará " + precoPromocional + "R$"
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="idPreco" placeholder="Digite o valor do produto:">
+    </div>
+    <div>
+      <input type="button" id="idCalculo" value="Verificar desconto" onclick="Calcular()">
+    </div>
+    <output id="idSaida"></output>
+  </main>
+</body>
+</html>

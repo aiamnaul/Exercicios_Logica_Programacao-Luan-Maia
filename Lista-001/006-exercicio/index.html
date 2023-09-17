@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Calcular(){
+      let number 
+      number = parseFloat (document.getElementById("idNumber").value)
+
+      let dobro
+      dobro = number * 2
+
+      document.getElementById("idDobro").value = "  O dobro de " + number + " é " + dobro
+
+      let terca
+      terca = number / 3
+      document.getElementById("idTerca").value = "  A terça parte de " + number + " é " + terca
+      
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" name="nmNumber" id="idNumber" placeholder="Digite um numero real:">
+    </div>
+    <div>
+      <input type="button" id="idCalcular" value="Calcular" onclick="Calcular()"> 
+    </div>
+    <div>
+      <output id="idDobro">
+
+      </output>
+    </div>
+    <div>
+      <output id="idTerca"></output>
+    </div>
+  </main>
+</body>
+</html>

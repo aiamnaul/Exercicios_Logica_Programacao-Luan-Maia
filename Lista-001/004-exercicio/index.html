@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Somar(){
+      let number1
+      let number2
+      let soma
+
+      number1 = Number (document.getElementById("idNumber1").value)
+      number2 = Number (document.getElementById("idNumber2").value)
+
+       console.log(number1)
+       console.log(number2)
+
+      soma = Number ((number1 + number2) /2)
+
+      console.log(soma)
+
+      document.getElementById("idExit").value = " A média entre " + number1 + " e " + number2 + " é igual a " + soma + " . "
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="idNumber1" placeholder="nota 1">
+    </div>
+    <div>
+      <input type="number" id="idNumber2" placeholder="nota 2">
+    </div>
+    <div>
+      <input type="button" value="Media" onclick="Somar()">
+    </div>
+    <div>
+      <output id="idExit"></output>
+    </div>
+  </main>
+</body>
+</html>

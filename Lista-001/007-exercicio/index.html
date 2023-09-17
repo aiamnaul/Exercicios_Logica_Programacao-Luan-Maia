@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Converter(){
+      let metros
+      metros = parseFloat(document.getElementById("idMetros").value)
+      console.log(metros)
+      let quilometros
+      quilometros = metros / 1000;
+      let hectometros
+      hectometros = metros / 100;
+      let decametros
+      decametros = metros / 10;
+      let decimetros
+      decimetros = metros * 10;
+      let centimetros
+      centimetros = metros * 100;
+      let milimetros
+      milimetros = metros * 1000;
+
+      document.getElementById("idSaida").value = " A distância de " + metros + "m" + " corresponde a: " + quilometros + "Km;" + hectometros + "Hm;" + decametros + "Dam;" + decimetros + "dm;" + centimetros + "cm;" + milimetros + "mm;"
+              
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="idMetros" placeholder="Digite uma distância em metros:">
+    </div>
+    <div>
+      <input type="button" id="idConverter" value="Converter" onclick="Converter()">
+    </div>
+    <div>
+      <output id="idSaida"></output>
+    </div>
+    
+  </main>
+</body>
+</html>

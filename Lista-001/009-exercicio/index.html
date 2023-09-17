@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Calcular() {
+      let largura 
+      largura = Number(document.getElementById("idAltura").value)
+      console.log(largura)
+      let altura
+      altura = Number(document.getElementById("idLargura").value)
+      console.log(altura)
+      let area
+      area = largura * altura
+      console.log(area)
+      let quantidadeTinta
+      quantidadeTinta = area / 2
+      console.log(quantidadeTinta)
+
+      document.getElementById("idSaida").value = "Área a ser pintada: " + area + " metros quadrados; " + " Quantidade de tinta necessária: " + quantidadeTinta + " litros "
+     // document.getElementById("idSaida").value = "Área a ser pintada: " + area + " metros quadrados; " + " Quantidade de tinta necessária: " + quantidadeTinta + " litros "//
+    }
+  </script>
+
+
+  <main>
+    <div>
+      <input type="number" id="idAltura" placeholder="Digite a altura:">
+    </div>
+    <div>
+      <input type="number" id="idLargura" placeholder="Digite a largura:">
+    </div>
+    <div>
+      <input type="button" value="Calcular" onclick="Calcular()">
+    </div>
+    <div>
+      <output id="idSaida"></output>
+    </div>
+  </main>
+</body>
+</html>

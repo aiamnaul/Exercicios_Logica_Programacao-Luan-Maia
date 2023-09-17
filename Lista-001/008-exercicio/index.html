@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Verificar(){
+      let quantia
+      quantia = parseFloat(document.getElementById("idDinheiro").value)
+      let conversao
+      conversao = quantia / 3,45
+
+      document.getElementById("idSaida").value = " Você possui " + quantia + "R$ " + " e pode converter em " + conversao +"USD"
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="idDinheiro" placeholder="Quantia de dinheiro em R$:">
+    </div>
+    <div>
+      <input type="button" id="idVerificar" value="Verificar" onclick="Verificar()" >
+    </div>
+    <div>
+      <output id="idSaida"></output>
+    </div>
+  </main>
+</body>
+</html>

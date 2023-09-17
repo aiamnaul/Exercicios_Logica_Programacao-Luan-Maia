@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+      var name;
+      var salario;
+    function registar(){
+      nome = document.getElementById("idName").value
+      salario = document.getElementById("idSalario").value
+
+      document.getElementById("idExit").value = " O funcionário " + nome + " tem um salário de " + salario + "R$ em junho"
+
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="text" id="idName" name="nmName" placeholder="Nome do Funcionario">
+    </div>
+    <div>
+      <input type="number" name="nmSalario" id="idSalario">
+    </div>
+    <div>
+      <input type="button" value="Pesquisar" onclick="registar()">
+    </div>
+    <div>
+      <output id="idExit"></output>
+    </div>
+  </main>
+</body>
+</html>

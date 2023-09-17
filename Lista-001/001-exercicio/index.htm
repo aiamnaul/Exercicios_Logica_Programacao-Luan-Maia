@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var nome
+      function registrar() {
+        nome = document.getElementById("idName").value;
+
+        console.log("Nome: " + nome);
+
+        document.getElementById("idExit").value =
+          " Olá " + nome + ",  é um prazer te conhecer!";
+      }
+    </script>
+
+    <main>
+      <div>
+        <input
+          type="text"
+          id="idName"
+          name="nmName"
+          placeholder="Qual seu nome?"
+          value=""
+        />
+      </div>
+      <div>
+        <input type="button" value="Registrar" onclick="registrar()" />
+      </div>
+      <div>
+        <output id="idExit">
+
+        </output>
+      </div>
+    </main>
+  </body>
+</html>
