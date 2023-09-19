@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calcularSalario() {
+        var salarioBruto = parseFloat(document.getElementById("salario").value);
+        var descontoINSS;
+
+        if (salarioBruto <= 600) {
+          descontoINSS = 0;
+        } else if (salarioBruto <= 1200) {
+          descontoINSS = salarioBruto * 0.25;
+        } else if (salarioBruto <= 2000) {
+          descontoINSS = salarioBruto * 0.3;
+        } else {
+          descontoINSS = salarioBruto * 0.35;
+        }
+
+        var salarioLiquido = salarioBruto - descontoINSS;
+        document.getElementById("resultado").value =
+          "Salário Líquido: R$" + salarioLiquido;
+      }
+    </script>
+    <main>
+      <div>
+        <input
+          type="number"
+          id="salario"
+          placeholder="Digite seu salario bruto R$:"
+        />
+      </div>
+      <div>
+        <input type="button" value="Calcular" onclick="calcularSalario()" />
+      </div>
+      <div>
+        <output id="resultado"></output>
+      </div>
+    </main>
+  </body>
+</html>

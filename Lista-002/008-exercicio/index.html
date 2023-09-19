@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calcularVenda() {
+        var valorCompra = parseFloat(document.getElementById("compra").value);
+        var lucro;
+
+        if (valorCompra < 20) {
+          lucro = valorCompra * 0.5;
+        } else {
+          lucro = valorCompra * 0.35;
+        }
+
+        var precoVenda = valorCompra + lucro;
+        document.getElementById("resultado").innerHTML ="Preço de Venda: R$" + precoVenda;
+      }
+    </script>
+    <main>
+      <div>
+        <input
+          type="number"
+          id="compra"
+          placeholder="Digite o valor da compra:"
+        />
+      </div>
+      <div>
+        <input type="button" value="Calcular" onclick="calcularVenda()" />
+      </div>
+      <div>
+        <output id="resultado"></output>
+      </div>
+    </main>
+  </body>
+</html>

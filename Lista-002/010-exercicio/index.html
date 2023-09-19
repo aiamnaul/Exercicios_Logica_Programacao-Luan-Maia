@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var usuarios = {
+        "Aluno1" : "Trocar123",
+        "Aluno2" : "Senha@123",
+        "Aluno3" : "123Trocar",
+      };
+
+      function autenticarUsuario() {
+        var userId = document.getElementById("userId").value;
+        var senha = document.getElementById("passwordId").value;
+
+        if (usuarios.hasOwnProperty(userId)) {
+          if (usuarios[userId] === senha) {
+            document.getElementById("mensagem").value = "Acesso Permitido";
+          } else {
+            document.getElementById("mensagem").value = "Senha incorreta";
+          }
+        } else {
+          document.getElementById("mensagem").value =
+            "Usuário não cadastrado";
+        }
+      }
+    </script>
+    <main>
+      <div>
+        <input type="text" id="userId" placeholder="Digite seu usuário" />
+      </div>
+      <div>
+        <input
+          type="password"
+          id="passwordId"
+          placeholder="Digite sua senha:"
+        />
+      </div>
+      <div>
+        <input type="button" value="Login" onclick="autenticarUsuario()" />
+      </div>
+      <div>
+        <output id="mensagem"></output>
+      </div>
+    </main>
+  </body>
+</html>
