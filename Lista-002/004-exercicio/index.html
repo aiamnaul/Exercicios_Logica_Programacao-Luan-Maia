@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function verificarIntervalo(){
+      var numero = parseFloat(document.getElementById("numero").value);
+
+      if (isNaN(numero)) {
+        document.getElementById("resultado").innerHTML = "Por favor, insira um número válido.";
+      } else if (numero >= 30 && numero <= 90) {
+        document.getElementById("resultado").innerHTML = "O número " + numero + " está no intervalo entre 30 e 90.";
+      } else {
+        document.getElementById("resultado").innerHTML = "O número " + numero + " não está no intervalo entre 30 e 90.";
+      }
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="numero" placeholder="Digite um numero:">
+    </div>
+    <div>
+      <input type="button" value="Verificar" onclick="verificarIntervalo()">
+    </div>
+    <div>
+      <output id="resultado"></output>
+    </div>
+  </main>
+</body>
+</html>

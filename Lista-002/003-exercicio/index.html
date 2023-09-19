@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function verificar(){
+      var numero = parseFloat(document.getElementById("numero").value);
+
+      if (isNaN(numero)) {
+        document.getElementById("resultado").innerHTML = "Por favor, insira um número válido.";
+      } else if (numero > 20) {
+        document.getElementById("resultado").innerHTML = "O número " + numero + " é maior do que 20.";
+      } else if (numero === 20) {
+        document.getElementById("resultado").innerHTML = "O número " + numero + " é igual a 20.";
+      } else {
+        document.getElementById("resultado").innerHTML = "O número " + numero + " é menor do que 20.";
+      }
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="numero" placeholder="Digite um numero:">
+    </div>
+    <div>
+      <input type="button" value="Verificar" onclick="verificar()">
+    </div>
+    <div>
+      <output id="resultado"></output>
+    </div>
+  </main>
+</body>
+</html>

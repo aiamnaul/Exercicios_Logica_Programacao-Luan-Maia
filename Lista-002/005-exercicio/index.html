@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function ordemDescresnte(){
+      var numero1 = parseFloat(document.getElementById("numero1").value);
+      var numero2 = parseFloat(document.getElementById("numero2").value);
+      var numero3 = parseFloat(document.getElementById("numero3").value);
+
+      if (isNaN(numero1) || isNaN(numero2) || isNaN(numero3)) {
+                document.getElementById("resultado").innerHTML = "Por favor, insira números válidos.";
+      } else {
+        // Criando um array com os números e ordenando em ordem decrescente
+        var numeros = [numero1, numero2, numero3];
+        numeros.sort(function(a, b) {
+          return b - a;
+        });
+        document.getElementById("resultado").innerHTML = "Números em ordem decrescente: " + numeros.join(", ");
+      }
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="numero1" placeholder="Digite o primeiro numero:">
+    </div>
+    <div>
+      <input type="number" id="numero2" placeholder="Digite o segundo numero:">
+    </div>
+    <div>
+      <input type="number" id="numero3" placeholder="Digite o terceiro numero:">
+    </div>
+    <div>
+      <input type="button" value="Ordenar" onclick="ordemDescresnte()">
+    </div>
+    <div>
+      <output id="resultado"></output>
+    </div>
+  </main>
+</body>
+</html>
