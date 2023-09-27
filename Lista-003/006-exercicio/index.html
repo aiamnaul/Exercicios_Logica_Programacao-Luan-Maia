@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function verificarSituacao(){
+      var anoNascimento = Number(document.getElementById("captAno").value);
+      var anoAtual = new Date().getFullYear();
+      var idade = anoAtual - anoNascimento;
+      var idadeMinimaAlistamento = 18;
+
+      if (idade < idadeMinimaAlistamento) {
+            var anosFaltantes = idadeMinimaAlistamento - idade;
+            document.getElementById("saida").value = "Faltam " + anosFaltantes + " anos para o alistamento militar.";
+        } else if (idade === idadeMinimaAlistamento) {
+            document.getElementById("saida").value = "Você está no ano de alistamento militar.";
+        } else {
+            var anosPassados = idade - idadeMinimaAlistamento;
+            document.getElementById("saida").value = "Já se passaram " + anosPassados + " anos desde o alistamento militar.";
+        }
+    }
+  </script>
+  <main>
+    <div>
+      <input type="number" name="" id="captAno" placeholder="Digite o ano de nascimeto">
+    </div>
+    <div>
+      <input type="button" value="Verificar" onclick="verificarSituacao()">
+    </div>
+    <div>
+      <output id="saida"></output>
+    </div>
+  </main>
+</body>
+</html>

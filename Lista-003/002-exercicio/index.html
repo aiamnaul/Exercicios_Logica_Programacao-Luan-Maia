@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function calcularIdade(){
+      var anoNascimento = parseInt(document.getElementById("captIdade").value);
+        var anoAtual = new Date().getFullYear();
+        var idade = anoAtual - anoNascimento;
+        
+        if (idade >= 16) {
+            document.getElementById("saida").value ="Você pode votar.";
+        } else {
+          document.getElementById("saida").value ="Você não pode votar.";
+        }
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" id="captIdade" placeholder="Em que ano voce nasceu:">
+    </div>
+    <div>
+      <input type="button" value="Verificar" onclick="calcularIdade()">
+    </div>
+    <div>
+      <output id="saida"></output>
+    </div>
+  </main>
+</body>
+</html>

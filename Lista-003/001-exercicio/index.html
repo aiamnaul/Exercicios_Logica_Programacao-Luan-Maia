@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calcularVelocidade() {
+        let velocidade = Number(
+          document.getElementById("captVelocidade").value
+        );
+        var limiteVelocidade = 80;
+        var valorMultaPorKm = 5;
+
+        if (velocidade > limiteVelocidade) {
+          var valorMulta = (velocidade - limiteVelocidade) * valorMultaPorKm;
+          document.getElementById("saida").value =
+            "Você foi multado! O valor da multa é R$" + valorMulta;
+          console.log(valorMulta);
+        } else {
+          document.getElementById("saida").value =
+            "Velocidade dentro do limite permitido.";
+        }
+      }
+    </script>
+    <main>
+      <div>
+        <input
+          type="number"
+          id="captVelocidade"
+          placeholder="Digite a velocidade:"
+        />
+      </div>
+      <div>
+        <input type="button" value="Calcular" onclick="calcularVelocidade()" />
+      </div>
+      <div>
+        <output id="saida"></output>
+      </div>
+    </main>
+  </body>
+</html>

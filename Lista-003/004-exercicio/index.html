@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function verificarNumero(){
+      var numero = Number(document.getElementById("captNumero").value);
+
+      if (numero % 2 === 0) {
+        document.getElementById("saida").value = "O numero : " + numero + "é Par.";
+      }
+      else{
+        document.getElementById("saida").value = "O numero : " + numero + "é Impar.";
+      }
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="number" name="nmNumero" id="captNumero" placeholder="Digite o numero:"> 
+    </div>
+    <div>
+      <input type="button" value="Verificar" onclick="verificarNumero()">
+    </div>
+    <div>
+      <output id="saida"></output>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calcularDesconto() {
+        var nome = document.getElementById("nome").value;
+        var sexoSelecionado = document.querySelector(
+          'input[name="sexo"]:checked'
+        );
+        var valorCompras = parseFloat(
+          document.getElementById("valorCompras").value
+        );
+        var desconto = 0;
+
+        if (sexoSelecionado) {
+          var sexo = sexoSelecionado.value;
+
+          if (sexo === "F") {
+            desconto = valorCompras * 0.13;
+          } else if (sexo === "M") {
+            desconto = valorCompras * 0.05;
+          }
+
+          var valorTotal = valorCompras - desconto;
+
+          document.getElementById("saida").value = "Cliente: " + nome + "\nSexo: " + (sexo === "M" ? "Masculino" : "Feminino") + "\nValor com desconto: R$" + valorTotal.toFixed(2);
+        } else {
+          document.getElementById("saida").value ="Por favor, selecione o sexo.";
+        }
+      }
+    </script>
+    <form action="">
+      <fieldset>
+        <legend>Calcular Desconto</legend>
+        <input type="text" id="nome" placeholder="Digite seu Nome:" />
+        <br /><br />
+        <label for="">Seu sexo</label><br />
+        <input type="radio" name="sexo" id="sexoFeminino" value="F" />
+        <label for="sexoFeminino">Feminino</label><br />
+        <input type="radio" name="sexo" id="sexoMasculino" value="M" />
+        <label for="sexoFeminino">Masculino</label><br /><br />
+        <input type="number" id="valorCompras" step="0.01" required />
+        <br /><br />
+        <input type="button" value="Calcular" onclick="calcularDesconto()" />
+      </fieldset>
+    </form>
+    <div>
+      <output id="saida"></output>
+    </div>
+  </body>
+</html>

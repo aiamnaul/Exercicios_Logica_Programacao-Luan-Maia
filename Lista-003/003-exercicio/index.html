@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function calcularMedia(){
+      var nome = document.getElementById("nomeAluno").value;
+      var nota1 = parseFloat(document.getElementById("nota1").value);
+      var nota2 = parseFloat(document.getElementById("nota2").value);
+      var media = (nota1 + nota2) / 2;
+        
+       console.log(nome)
+       console.log(nota1)
+       console.log(nota2)
+       console.log(media)
+        
+      if (media >= 7.0) {
+          document.getElementById("saida").value= "A média de " + nome + " é " + media.toFixed(2) + " aprovado! " ;
+      } else {
+          document.getElementById("saida").value= "A média de " + nome + " é " + media.toFixed(2) + " reprovado! " ;
+      }
+    }
+  </script>
+
+  <main>
+    <div>
+      <input type="text" id="nomeAluno" placeholder="Digite o nome do Aluno">
+    </div>
+    <div>
+      <input type="number" name="nmNota1" id="nota1" placeholder="Digite a primeira nota:">
+    </div>
+    <div>
+      <input type="number" name="nmNota2" id="nota2" placeholder="Digite a segunda nota:">
+    </div>
+    <div>
+      <input type="button" value="Calcular" onclick="calcularMedia()">
+    </div>
+    <div>
+      <output id="saida"></output>
+    </div>
+  </main>
+</body>
+</html>
