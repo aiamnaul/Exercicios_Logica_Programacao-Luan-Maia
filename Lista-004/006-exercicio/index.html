@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function iniciarContador() {
+        var output = document.getElementById("saida");
+        output.value += "Inicio ";
+
+        for (var i = 30; i >= 1; i--) {
+          output.value += i;
+
+          if (i % 4 === 0) {
+            output.value += "[" + i + "]";
+          } else {
+            output.value += " ";
+          }
+        }
+
+        output.value += "Acabou!";
+      }
+    </script>
+    <main>
+      <div>
+        <input type="button" value="Iniciar" onclick="iniciarContador()" />
+      </div>
+      <div>
+        <output id="saida"> </output>
+      </div>
+    </main>
+  </body>
+</html>

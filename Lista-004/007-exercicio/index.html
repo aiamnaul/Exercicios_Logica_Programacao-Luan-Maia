@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function iniciarContador() {
+        var resultado = document.getElementById("saida");
+        var soma = 0;
+        for (var i = 6; i <= 100; i += 2) {
+          soma += i;
+        }
+        resultado.value = "A soma é: " + soma;
+      }
+    </script>
+    <main>
+      <div>
+        <input type="button" value="Iniciar" onclick="iniciarContador()" />
+      </div>
+      <div>
+        <output id="saida"> </output>
+      </div>
+    </main>
+  </body>
+</html>

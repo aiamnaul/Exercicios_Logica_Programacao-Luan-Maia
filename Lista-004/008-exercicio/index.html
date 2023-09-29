@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function exibirContagem() {
+      var numero1 = Number(document.getElementById("numero1").value);
+      var numero2 = Number(document.getElementById("numero2").value);
+      var output = document.getElementById("saida");
+
+      output.value += "Contagem: ";
+
+      for (var i = numero1; i <= numero2; i += 2) {
+        output.value += i + " ";
+      }
+
+      output.value += "Acabou!";
+    }
+  </script>
+  <body>
+    <main>
+      <div>
+        <input
+          type="number"
+          id="numero1"
+          placeholder="Digite o primeiro numero do intervalo:"
+        />
+      </div>
+      <div>
+        <input
+          type="number"
+          id="numero2"
+          placeholder="Digite o segundo numero do intervalo:"
+        />
+      </div>
+      <div>
+        <input type="button" value="Iniciar" onclick="exibirContagem()" />
+      </div>
+      <div>
+        <output id="saida"></output>
+      </div>
+    </main>
+  </body>
+</html>
