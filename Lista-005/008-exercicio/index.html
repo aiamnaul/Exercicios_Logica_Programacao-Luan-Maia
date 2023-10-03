@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Temperatura</title>
+  </head>
+  <body>
+    <h1>Conversor de Temperatura</h1>
+
+    <label for="temperaturaCelsius">Temperatura em Celsius:</label>
+    <input
+      type="number"
+      id="temperaturaCelsius"
+      placeholder="Digite a temperatura em Celsius"
+    />
+    <button onclick="converterTemperatura()">Converter</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      function converterTemperatura() {
+        const temperaturaCelsius = parseFloat(
+          document.getElementById("temperaturaCelsius").value
+        );
+
+        if (isNaN(temperaturaCelsius)) {
+          alert("Digite uma temperatura válida em Celsius.");
+          return;
+        }
+
+        const temperaturaFahrenheit = (9 * temperaturaCelsius + 160) / 5;
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.textContent = `Temperatura em Fahrenheit: ${temperaturaFahrenheit.toFixed(
+          2
+        )}°F`;
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sequência de Fibonacci</title>
+  </head>
+  <body>
+    <h1>Os 10 primeiros elementos da Sequência de Fibonacci:</h1>
+
+    <script>
+      // Função para gerar os primeiros n elementos da Sequência de Fibonacci
+      function fibonacci(n) {
+        let fib = [0, 1];
+
+        for (let i = 2; i < n; i++) {
+          fib[i] = fib[i - 1] + fib[i - 2];
+        }
+
+        return fib;
+      }
+
+      // Obtém os primeiros 10 elementos
+      const fibonacciSequence = fibonacci(10);
+
+      // Exibe os elementos na página
+      const resultElement = document.createElement("p");
+      resultElement.textContent = fibonacciSequence.join(" ");
+      document.body.appendChild(resultElement);
+    </script>
+  </body>
+</html>
+Este código cria uma página HTML simples com um título e um parágrafo que exibe
+os primeiros 10 elementos da Sequência de Fibonacci. O JavaScript define uma
+função fibonacci para gerar os elementos e, em seguida, os resultados são
+exibidos na página. User Crie um aplicativo em html e javascript que leia o
+preço de 'n' produtos. No final, mostre na tela qual foi o maior e qual foi o
+menor preço digitados. ChatGPT Claro! Abaixo está um exemplo de aplicativo HTML
+com JavaScript que permite ao usuário inserir os preços de 'n' produtos e, no
+final, exibe o maior e o menor preço digitados: html Copy code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparação de Preços</title>
+  </head>
+  <body>
+    <h1>Comparação de Preços</h1>
+
+    <label for="numProdutos">Quantidade de Produtos:</label>
+    <input
+      type="number"
+      id="numProdutos"
+      min="1"
+      placeholder="Digite a quantidade de produtos"
+    />
+    <button onclick="lerPrecos()">Inserir Preços</button>
+
+    <div id="precos"></div>
+    <p id="resultado"></p>
+
+    <script>
+      function lerPrecos() {
+        const numProdutos = parseInt(
+          document.getElementById("numProdutos").value
+        );
+
+        if (isNaN(numProdutos) || numProdutos <= 0) {
+          alert("Digite uma quantidade válida de produtos.");
+          return;
+        }
+
+        let precos = [];
+
+        for (let i = 1; i <= numProdutos; i++) {
+          const preco = parseFloat(prompt(`Digite o preço do produto ${i}:`));
+
+          if (isNaN(preco) || preco < 0) {
+            alert("Digite um preço válido para o produto.");
+            return;
+          }
+
+          precos.push(preco);
+        }
+
+        // Exibe os preços na página
+        const precosElement = document.getElementById("precos");
+        precosElement.innerHTML = `<p>Preços inseridos: ${precos.join(
+          ", "
+        )}</p>`;
+
+        // Calcula e exibe o maior e o menor preço
+        const maiorPreco = Math.max(...precos);
+        const menorPreco = Math.min(...precos);
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.innerHTML = `Maior preço: ${maiorPreco.toFixed(
+          2
+        )}<br>Menor preço: ${menorPreco.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
+Este código HTML inclui um campo para a entrada da quantidade de produtos, um
+botão para acionar a leitura dos preços e uma área para exibir os preços
+inseridos, bem como o resultado com o maior e o menor preço. A função lerPrecos
+é chamada quando o botão é clicado, ela lê os preços, exibe-os e calcula o maior
+e o menor preço. User Crie um algoritmo em html e javascript que leia a idade de
+'n' pessoas, mostrando no final: a) Qual é a média de idade do grupo b) Quantas
+pessoas tem mais de 18 anos c) Quantas pessoas tem menos de 5 anos d) Qual foi a
+maior idade lida ChatGPT Aqui está um exemplo de aplicativo HTML com JavaScript
+que atende aos requisitos mencionados: html Copy code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análise de Idades</title>
+  </head>
+  <body>
+    <h1>Análise de Idades</h1>
+
+    <label for="numPessoas">Quantidade de Pessoas:</label>
+    <input
+      type="number"
+      id="numPessoas"
+      min="1"
+      placeholder="Digite a quantidade de pessoas"
+    />
+    <button onclick="lerIdades()">Inserir Idades</button>
+
+    <div id="idades"></div>
+    <p id="resultado"></p>
+
+    <script>
+      function lerIdades() {
+        const numPessoas = parseInt(
+          document.getElementById("numPessoas").value
+        );
+
+        if (isNaN(numPessoas) || numPessoas <= 0) {
+          alert("Digite uma quantidade válida de pessoas.");
+          return;
+        }
+
+        let idades = [];
+        let totalIdades = 0;
+        let maioresDezoito = 0;
+        let menoresCinco = 0;
+        let maiorIdade = 0;
+
+        for (let i = 1; i <= numPessoas; i++) {
+          const idade = parseInt(prompt(`Digite a idade da pessoa ${i}:`));
+
+          if (isNaN(idade) || idade < 0) {
+            alert("Digite uma idade válida para a pessoa.");
+            return;
+          }
+
+          idades.push(idade);
+          totalIdades += idade;
+
+          if (idade > 18) {
+            maioresDezoito++;
+          }
+
+          if (idade < 5) {
+            menoresCinco++;
+          }
+
+          if (idade > maiorIdade) {
+            maiorIdade = idade;
+          }
+        }
+
+        // Exibe as idades na página
+        const idadesElement = document.getElementById("idades");
+        idadesElement.innerHTML = `<p>Idades inseridas: ${idades.join(
+          ", "
+        )}</p>`;
+
+        // Calcula e exibe as estatísticas
+        const mediaIdades = totalIdades / numPessoas;
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.innerHTML = `
+                Média de idade: ${mediaIdades.toFixed(2)}<br>
+                Pessoas com mais de 18 anos: ${maioresDezoito}<br>
+                Pessoas com menos de 5 anos: ${menoresCinco}<br>
+                Maior idade: ${maiorIdade}
+            `;
+      }
+    </script>
+  </body>
+</html>
+Este código HTML inclui campos para a entrada da quantidade de pessoas, um botão
+para acionar a leitura das idades e uma área para exibir as idades inseridas,
+bem como os resultados das estatísticas. A função lerIdades é chamada quando o
+botão é clicado, ela lê as idades, exibe-as e calcula as estatísticas
+solicitadas. User faça um algoritmo em html e javascript que leia uma
+temperatura em graus Celsius e apresentá-la convertida em graus Fahrenheit. A
+fórmula de conversão é: F=(9*C+160)/5, sendo F a temperatura em Fahrenheit e C a
+temperatura em Celsius. ChatGPT Aqui está um exemplo de aplicativo HTML com
+JavaScript que converte a temperatura de Celsius para Fahrenheit, utilizando a
+fórmula fornecida: html Copy code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Temperatura</title>
+  </head>
+  <body>
+    <h1>Conversor de Temperatura</h1>
+
+    <label for="temperaturaCelsius">Temperatura em Celsius:</label>
+    <input
+      type="number"
+      id="temperaturaCelsius"
+      placeholder="Digite a temperatura em Celsius"
+    />
+    <button onclick="converterTemperatura()">Converter</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      function converterTemperatura() {
+        const temperaturaCelsius = parseFloat(
+          document.getElementById("temperaturaCelsius").value
+        );
+
+        if (isNaN(temperaturaCelsius)) {
+          alert("Digite uma temperatura válida em Celsius.");
+          return;
+        }
+
+        const temperaturaFahrenheit = (9 * temperaturaCelsius + 160) / 5;
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.textContent = `Temperatura em Fahrenheit: ${temperaturaFahrenheit.toFixed(
+          2
+        )}°F`;
+      }
+    </script>
+  </body>
+</html>

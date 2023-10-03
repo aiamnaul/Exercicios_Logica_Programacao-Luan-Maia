@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análise de Idades</title>
+  </head>
+  <body>
+    <h1>Análise de Idades</h1>
+
+    <label for="numPessoas">Quantidade de Pessoas:</label>
+    <input
+      type="number"
+      id="numPessoas"
+      min="1"
+      placeholder="Digite a quantidade de pessoas"
+    />
+    <button onclick="lerIdades()">Inserir Idades</button>
+
+    <div id="idades"></div>
+    <p id="resultado"></p>
+
+    <script>
+      function lerIdades() {
+        const numPessoas = parseInt(
+          document.getElementById("numPessoas").value
+        );
+
+        if (isNaN(numPessoas) || numPessoas <= 0) {
+          alert("Digite uma quantidade válida de pessoas.");
+          return;
+        }
+
+        let idades = [];
+        let totalIdades = 0;
+        let maioresDezoito = 0;
+        let menoresCinco = 0;
+        let maiorIdade = 0;
+
+        for (let i = 1; i <= numPessoas; i++) {
+          const idade = parseInt(prompt(`Digite a idade da pessoa ${i}:`));
+
+          if (isNaN(idade) || idade < 0) {
+            alert("Digite uma idade válida para a pessoa.");
+            return;
+          }
+
+          idades.push(idade);
+          totalIdades += idade;
+
+          if (idade > 18) {
+            maioresDezoito++;
+          }
+
+          if (idade < 5) {
+            menoresCinco++;
+          }
+
+          if (idade > maiorIdade) {
+            maiorIdade = idade;
+          }
+        }
+
+        
+        const idadesElement = document.getElementById("idades");
+        idadesElement.innerHTML = `<p>Idades inseridas: ${idades.join(
+          ", "
+        )}</p>`;
+
+        
+        const mediaIdades = totalIdades / numPessoas;
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.innerHTML = `
+                Média de idade: ${mediaIdades.toFixed(2)}<br>
+                Pessoas com mais de 18 anos: ${maioresDezoito}<br>
+                Pessoas com menos de 5 anos: ${menoresCinco}<br>
+                Maior idade: ${maiorIdade}
+            `;
+      }
+    </script>
+  </body>
+</html>

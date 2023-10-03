@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Comparação de Preços</h1>
+
+    <label for="numProdutos">Quantidade de Produtos:</label>
+    <input
+      type="number"
+      id="numProdutos"
+      min="1"
+      placeholder="Digite a quantidade de produtos"
+    />
+    <button onclick="lerPrecos()">Inserir Preços</button>
+
+    <div id="precos"></div>
+    <p id="resultado"></p>
+
+    <script>
+      function lerPrecos() {
+        const numProdutos = parseInt(
+          document.getElementById("numProdutos").value
+        );
+
+        if (isNaN(numProdutos) || numProdutos <= 0) {
+          alert("Digite uma quantidade válida de produtos.");
+          return;
+        }
+
+        let precos = [];
+
+        for (let i = 1; i <= numProdutos; i++) {
+          const preco = parseFloat(prompt(`Digite o preço do produto ${i}:`));
+
+          if (isNaN(preco) || preco < 0) {
+            alert("Digite um preço válido para o produto.");
+            return;
+          }
+
+          precos.push(preco);
+        }
+
+        // Exibe os preços na página
+        const precosElement = document.getElementById("precos");
+        precosElement.innerHTML = `<p>Preços inseridos: ${precos.join(
+          ", "
+        )}</p>`;
+
+        // Calcula e exibe o maior e o menor preço
+        const maiorPreco = Math.max(...precos);
+        const menorPreco = Math.min(...precos);
+
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.innerHTML = `Maior preço: ${maiorPreco.toFixed(
+          2
+        )}<br>Menor preço: ${menorPreco.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

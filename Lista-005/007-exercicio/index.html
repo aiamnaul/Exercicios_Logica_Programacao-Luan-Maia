@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo de Adivinhação</title>
+  </head>
+  <body>
+    <h1>Jogo de Adivinhação</h1>
+
+    <p>Tente adivinhar um número entre 1 e 10:</p>
+
+    <label for="tentativa">Sua Tentativa:</label>
+    <input type="number" id="tentativa" min="1" max="10" />
+    <button onclick="verificarAdivinhacao()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      // Gera um número aleatório entre 1 e 10
+      const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+      // Contador de tentativas
+      let tentativas = 0;
+
+      function verificarAdivinhacao() {
+        tentativas++;
+        const tentativaUsuario = parseInt(
+          document.getElementById("tentativa").value
+        );
+
+        if (
+          isNaN(tentativaUsuario) ||
+          tentativaUsuario < 1 ||
+          tentativaUsuario > 10
+        ) {
+          alert("Digite um número válido entre 1 e 10.");
+          return;
+        }
+
+        if (tentativaUsuario === numeroSecreto) {
+          exibirResultado("Parabéns! Você acertou o número!");
+        } else if (tentativas === 3) {
+          exibirResultado(
+            `Você perdeu! O número secreto era ${numeroSecreto}.`
+          );
+        } else {
+          const dica = tentativaUsuario < numeroSecreto ? "maior" : "menor";
+          exibirResultado(
+            `Tente novamente! O número é ${dica} do que ${tentativaUsuario}.`
+          );
+        }
+      }
+
+      function exibirResultado(mensagem) {
+        const resultadoElement = document.getElementById("resultado");
+        resultadoElement.textContent = mensagem;
+
+        // Desabilita o botão após o jogo terminar
+        if (mensagem.includes("acertou") || mensagem.includes("perdeu")) {
+          document.getElementById("tentativa").disabled = true;
+          document.querySelector("button").disabled = true;
+        }
+      }
+    </script>
+  </body>
+</html>
